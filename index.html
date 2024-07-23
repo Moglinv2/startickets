@@ -21,10 +21,10 @@
     </script>
 </head>
 
-<body x-data="{ isDark: localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches) }" :class="{ 'dark': isDark }" class="font-montserrat text-sm bg-white dark:bg-zinc-900" >
+<body x-data="{ isDark: localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches) }" :class="{ 'dark': isDark }" class="font-montserrat text-sm bg-white dark:bg-zinc-900">
     <div class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 ">
         <!-- Left Sidebar -->
-        
+
 
         <main class=" flex-1 py-10  px-5 sm:px-10 ">
 
@@ -32,11 +32,11 @@
                 <span class="mr-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-700 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
-                      </svg>
+                    </svg>
                 </span>
                 <svg class="h-8 w-8 fill-red-600 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M10 15.5v-7c0-.41.47-.65.8-.4l4.67 3.5c.27.2.27.6 0 .8l-4.67 3.5c-.33.25-.8.01-.8-.4Zm11.96-4.45c.58 6.26-4.64 11.48-10.9 10.9 -4.43-.41-8.12-3.85-8.9-8.23 -.26-1.42-.19-2.78.12-4.04 .14-.58.76-.9 1.31-.7v0c.47.17.75.67.63 1.16 -.2.82-.27 1.7-.19 2.61 .37 4.04 3.89 7.25 7.95 7.26 4.79.01 8.61-4.21 7.94-9.12 -.51-3.7-3.66-6.62-7.39-6.86 -.83-.06-1.63.02-2.38.2 -.49.11-.99-.16-1.16-.64v0c-.2-.56.12-1.17.69-1.31 1.79-.43 3.75-.41 5.78.37 3.56 1.35 6.15 4.62 6.5 8.4ZM5.5 4C4.67 4 4 4.67 4 5.5 4 6.33 4.67 7 5.5 7 6.33 7 7 6.33 7 5.5 7 4.67 6.33 4 5.5 4Z"></path>
-                </svg>        
+                </svg>
                 <div class="tracking-wide dark:text-white flex-1">MMovie<span class="text-red-600">.</span></div>
 
                 <div class="relative items-center content-center flex ml-2">
@@ -48,16 +48,21 @@
                     <input type="text" class="text-xs ring-1 bg-transparent ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 pl-10 pr-5 text-gray-600 dark:text-white  py-3 rounded-full w-full outline-none focus:ring-1" placeholder="Search ...">
                 </div>
             </header>
-           
+
             <section>
                 <nav class="flex space-x-6 text-gray-400 font-medium">
                     <a href="#" class="hover:text-gray-700 dark:hover:text-white">Cartelera</a>
                     <a href="#" class="text-gray-700 dark:text-white font-semibold">Combos</a>
-                    <a class="hidden flex items-center space-x-2 py-1 mt-4" href="#">                  
+
+
+                    <script src="https://js.stripe.com/v3"></script>
+                    <script src="Scrip.js" type="module"></script>
+
+                    <a class="hidden flex items-center space-x-2 py-1 mt-4" href="#">
                         <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                             <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer"
-                                @click="isDark = !isDark; localStorage.setItem('darkMode', isDark);" 
-                                :checked="isDark"/>
+                                   @click="isDark = !isDark; localStorage.setItem('darkMode', isDark);"
+                                   :checked="isDark" />
                             <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                         </div>
                         <label for="toggle" class="">Dark Theme</label>
@@ -65,10 +70,10 @@
                 </nav>
 
                 <div class="flex flex-col justify-between mt-4 bg-black/10 bg-blend-multiply rounded-3xl h-80 overflow-hidden bg-cover bg-center px-7 pt-4 pb-6 text-white"
-                 style="background-image: url('images/inception.jpg');" >
+                     style="background-image: url('images/inception.jpg');">
                     <!-- <img class="object-cover w-full h-full" src="images/inception.jpg" alt=""> -->
-                    
-                    
+
+
                     <div class="bg-gradient-to-r from-black/30 to-transparent -mx-7 -mb-6 px-7 pb-6 pt-2">
                         <span class="uppercase text-3xl font-semibold drop-shadow-lg ">Inception</span>
                         <div class="text-xs text-gray-200 mt-2">
@@ -77,7 +82,8 @@
                             <a href="#" class="">Sci-Fi</a>
                         </div>
                         <div class="mt-4 flex space-x-3 items-center">
-                            <a href="#" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block">Ver pelicula</a>
+                            <a href="https://buy.stripe.com/test_14kbMz0Gl9nidnq001" target="_blank" class="px-5 py-2.5 bg-gray-600 hover:bg-red-700 rounded-lg text-xs inline-block text-white font-semibold">Ver película</a>
+
                             <a href="#" class="p-2.5 bg-gray-800/80 rounded-lg hover:bg-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
@@ -100,67 +106,67 @@
                         </svg>
                     </div>
                 </div>
-               
+
                 <div class="mt-4 grid grid-cols-2  sm:grid-cols-4 gap-x-5 gap-y-5">
                     <div class="relative rounded-xl overflow-hidden">
                         <img src="https://caribbeancinemas.com/img/posters/9344.jpg" class="object-cover h-full w-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                                <a  class="p-2.5">
-                                    
-                                </a>
-                            
+
+                            <a class="p-2.5">
+
+                            </a>
+
                             <div class="self-center flex flex-col items-center space-y-2">
                                 <span class="capitalize text-white font-medium drop-shadow-md">INSIDE OUT 2</span>
-                                <a href="#" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block">Ver pelicula</a>
-
+                                <a href="https://buy.stripe.com/test_fZe5ob88N6b6cjmcMQ" target="_blank" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block text-white font-semibold">Ver película</a>
                             </div>
+
                         </div>
                     </div>
                     <div class="relative rounded-xl overflow-hidden ">
                         <img src="https://caribbeancinemas.com/img/posters/9427.jpg" class="object-cover w-full h-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                            <a  class="p-2.5">
-                                
+
+                            <a class="p-2.5">
+
                             </a>
-                        
-                        <div class="self-center flex flex-col items-center space-y-2">
-                            <span class="capitalize text-white font-medium drop-shadow-md">BAD BOYS :RIDE OR DIE</span>
-                            <a href="#" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block">Ver pelicula</a>
+
+                            <div class="self-center flex flex-col items-center space-y-2">
+                                <span class="capitalize text-white font-medium drop-shadow-md">BAD BOYS : RIDE OR DIE</span>
+                                <a href="https://buy.stripe.com/test_4gwdUH88N8je97adQS" target="_blank" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block text-white font-semibold">Ver película</a>
+                            </div>
 
                         </div>
-                    </div>
                     </div>
                     <div class="relative rounded-xl overflow-hidden ">
                         <img src="https://caribbeancinemas.com/img/posters/9455.jpg" class="object-cover h-full w-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                            <a  class="p-2.5">
-                                
+
+                            <a class="p-2.5">
+
                             </a>
-                        
-                        <div class="self-center flex flex-col items-center space-y-2">
-                            <span class="capitalize text-white font-medium drop-shadow-md">LA FAMILIA</span>
-                            <a href="#" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block">Ver pelicula</a>
+
+                            <div class="self-center flex flex-col items-center space-y-2">
+                                <span class="capitalize text-white font-medium drop-shadow-md">LA FAMILIA</span>
+                                <a href="https://buy.stripe.com/test_bIYg2Pexb9ni6Z2aEH" target="_blank" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block text-white font-semibold">Ver película</a>
+                            </div>
 
                         </div>
-                    </div>
                     </div>
                     <div class="relative rounded-xl overflow-hidden ">
                         <img src="https://caribbeancinemas.com/img/posters/9401.jpg" class="object-cover h-full w-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                            <a  class="p-2.5">
-                                
+
+                            <a class="p-2.5">
+
                             </a>
-                        
-                        <div class="self-center flex flex-col items-center space-y-2">
-                            <span class="capitalize text-white font-medium drop-shadow-md">COMA PROFUNDO</span>
-                            <a href="#" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block">Ver pelicula</a>
+
+                            <div class="self-center flex flex-col items-center space-y-2">
+                                <span class="capitalize text-white font-medium drop-shadow-md">COMA PROFUNDO</span>
+                                <a href="https://buy.stripe.com/test_14kbMzagVeHC0AE005" target="_blank" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 rounded-lg text-xs inline-block text-white font-semibold">Ver película</a>
+                            </div>
 
                         </div>
-                    </div>
                     </div>
                 </div>
             </section>
@@ -176,16 +182,16 @@
                         </svg>
                     </div>
                 </div>
-               
+
                 <div class="mt-4 grid grid-cols-2  sm:grid-cols-4 gap-x-5 gap-y-5">
                     <div class="relative rounded-xl overflow-hidden">
                         <img src="https://caribbeancinemas.com/img/posters/9269.jpg" class="object-cover h-full w-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                                <a  class="p-2.5">
-                                    
-                                </a>
-                            
+
+                            <a class="p-2.5">
+
+                            </a>
+
                             <div class="self-center flex flex-col items-center space-y-2">
                                 <span class="capitalize text-white font-medium drop-shadow-md">CAPITAN AVISPA</span>
                             </div>
@@ -194,52 +200,52 @@
                     <div class="relative rounded-xl overflow-hidden ">
                         <img src="https://caribbeancinemas.com/img/posters/9407.jpg" class="object-cover w-full h-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                            <a  class="p-2.5">
-                                
+
+                            <a class="p-2.5">
+
                             </a>
-                        
-                        <div class="self-center flex flex-col items-center space-y-2">
-                            <span class="capitalize text-white font-medium drop-shadow-md">IF SPANOL</span>
+
+                            <div class="self-center flex flex-col items-center space-y-2">
+                                <span class="capitalize text-white font-medium drop-shadow-md">IF SPANOL</span>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="relative rounded-xl overflow-hidden ">
                         <img src="https://caribbeancinemas.com/img/posters/9343.jpg" class="object-cover h-full w-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                            <a  class="p-2.5">
-                                
+
+                            <a class="p-2.5">
+
                             </a>
-                        
-                        <div class="self-center flex flex-col items-center space-y-2">
-                            <span class="capitalize text-white font-medium drop-shadow-md">THE WATCHERS</span>
+
+                            <div class="self-center flex flex-col items-center space-y-2">
+                                <span class="capitalize text-white font-medium drop-shadow-md">THE WATCHERS</span>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="relative rounded-xl overflow-hidden ">
                         <img src="https://caribbeancinemas.com/img/posters/9316.jpg" class="object-cover h-full w-full -z-10" alt="">
                         <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
-                         
-                            <a  class="p-2.5">
-                                
+
+                            <a class="p-2.5">
+
                             </a>
-                        
-                        <div class="self-center flex flex-col items-center space-y-2">
-                            <span class="capitalize text-white font-medium drop-shadow-md">FURIOSA: A MAD MAX</span>
+
+                            <div class="self-center flex flex-col items-center space-y-2">
+                                <span class="capitalize text-white font-medium drop-shadow-md">FURIOSA: A MAD MAX</span>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </section>
-            
+
 
         </main>
 
         <!-- Right Sidebar -->
         <aside class=" w-1/5 py-10 px-10  min-w-min  border-l border-gray-300 dark:border-zinc-700 hidden lg:block ">
 
-            
+
 
             <div class="mt-10">
                 <span class="font-semibold text-gray-700 dark:text-white">Peliculas populares</span>
@@ -337,12 +343,13 @@
 
                 </ul>
             </div>
-            
+
         </aside><!-- /Right Sidebar -->
 
 
     </div>
-
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="Scrip.js"></script>
 </body>
 
 </html>

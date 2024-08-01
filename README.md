@@ -1,27 +1,21 @@
+# Movie Information System
 
-# Tailwindcss Movie Dashboard Template
-
-A responsive movie dashboard template designed with tailwindcss.
-The dashboard is designed in light and dark theme.
-In order to change theme between light and dark,a switch toggler is put on the menu.
-Alpinejs v3 script is used to make theme toggler dynamic.
-
+A comprehensive movie information system designed with Tailwind CSS and Alpine.js. This system features both light and dark themes with a dynamic theme switcher. It includes a full-featured login system and retrieves real-time movie information through APIs.
 
 ## Screenshots
 
 ![App Screenshot](screenshot.jpg)
 
+## Features
+
+- **Responsive Design**: Adapts to both light and dark themes.
+- **Dynamic Theme Toggler**: Switch between light and dark modes using a theme switcher integrated with Alpine.js v3.
+- **Login System**: Secure login functionality for user access.
+- **Real-Time Movie Information**: Fetch and display up-to-date movie data using external APIs.
 
 ## Installation & Development
 
-For furthur development, Tailwindcss and Node.js dependencies need to be installed by npm.
+To get started with development, first, install the necessary dependencies for Tailwind CSS and Node.js using npm:
 
 ```bash
-  npm install 
-```
-
-In development, Tailwind CLI will be needed to watch and build the style.css
-
-```bash
-  npm run build 
-```
+npm install
